@@ -64,7 +64,7 @@ const JharkhandTourism = () => {
       description: "Experience the thunderous beauty of Jharkhand's highest waterfall cascading 98 meters down rocky cliffs.",
       image: hundruFalls,
       // Serve the MP4 from public/ and play it on hover
-      video: "/waterfall video.mp4",
+      video: "https://res.cloudinary.com/dvevruzjw/video/upload/v1773343838/waterfall_video_cnveqx.mp4",
       location: "Ranchi",
       duration: "Half Day",
       rating: 4.8,
@@ -76,7 +76,7 @@ const JharkhandTourism = () => {
       description: "Discover diverse wildlife including elephants, tigers, and deer in their natural habitat.",
       image: betlaNationalPark,
       // Serve the MP4 from public/ and play it on hover
-      video: "/From Klickpin CF - Kaziranga National Park - At a Glance in Monsoon.mp4",
+      video: "https://res.cloudinary.com/dvevruzjw/video/upload/v1773343828/From_Klickpin_CF_-_Kaziranga_National_Park_-_At_a_Glance_in_Monsoon_xwsgce.mp4",
       location: "Latehar",
       duration: "Full Day",
       rating: 4.6,
@@ -99,7 +99,7 @@ const JharkhandTourism = () => {
       // Place the JPEG in /public so it is served at this path
       image: "/Need A Quiet Place To Unwind_ Head To Netarhat In Jharkhand.jpeg",
       // Hover video playback (place file in public/)
-      video: "/naharut ka video.mp4",
+      video: "https://res.cloudinary.com/dvevruzjw/video/upload/v1773343833/naharut_ka_video_quwvq6.mp4",
       location: "Latehar",
       duration: "2-3 Days",
       rating: 4.7,
@@ -112,7 +112,7 @@ const JharkhandTourism = () => {
       // Use a custom poster image from public/ by default
       image: "/patratu image.jpeg",
       // Place the MP4 in /public so it is served at this path
-      video: "/From Klickpin CF - Pinterest Video.mp4",
+      video: "https://res.cloudinary.com/dvevruzjw/video/upload/v1773343833/From_Klickpin_CF_-_Pinterest_Video_ccrvvh.mp4",
       location: "Ramgarh",
       duration: "Full Day",
       rating: 4.5,
@@ -125,7 +125,7 @@ const JharkhandTourism = () => {
       // Use custom public image as default poster
       image: "/Baba Dham ✨ Deoghar, Jharkhand.jpeg",
       // Hover video playback (place file in public/)
-      video: "/deogarh video.mp4",
+      video: "https://res.cloudinary.com/dvevruzjw/video/upload/v1773343830/deogarh_video_k0i8vb.mp4",
       location: "Deoghar",
       duration: "1-2 Days",
       rating: 4.8,

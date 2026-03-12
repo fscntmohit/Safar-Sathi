@@ -73,7 +73,7 @@ import { useState, useRef } from "react";
             isVideoLoaded ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <source src="/Home video edited.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dvevruzjw/video/upload/v1773342679/Home_video_edited_copy_qhk1f1.mp4"type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
