@@ -1,0 +1,465 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Leaflet Map Styles */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+}
+
+.leaflet-popup-content {
+  margin: 8px 12px;
+  line-height: 1.4;
+}
+
+.leaflet-popup-tip {
+  background: white;
+}
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  html, body {
+    background: transparent;
+  }
+  
+  :root {
+    /* Nature-inspired color palette for Jharkhand tourism */
+    --background: 0 0% 100%;
+    --foreground: 147 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 147 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 147 30% 15%;
+
+    /* Forest green primary inspired by Jharkhand's forests */
+    --primary: 147 60% 22%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Earth tones for secondary */
+    --secondary: 30 25% 85%;
+    --secondary-foreground: 147 30% 15%;
+
+    --muted: 48 15% 92%;
+    --muted-foreground: 147 15% 45%;
+
+    /* Golden accent for cultural heritage */
+    --accent: 38 70% 60%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 147 25% 88%;
+    --input: 147 25% 88%;
+    --ring: 147 60% 22%;
+
+    /* Custom design tokens - Enhanced for better contrast */
+    --forest-primary: 147 60% 22%;
+    --forest-light: 147 45% 35%;
+    --forest-dark: 147 70% 15%;
+    --earth-warm: 30 40% 65%;
+    --earth-light: 30 25% 85%;
+    --water-blue: 200 70% 45%;
+    --water-light: 200 60% 60%;
+    --cultural-gold: 38 70% 60%;
+    --cultural-dark: 38 80% 45%;
+    --nature-green: 120 50% 40%;
+    --nature-light: 120 40% 55%;
+    
+    /* Enhanced Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(147 60% 22%), hsl(120 50% 40%), hsl(200 70% 45%));
+    --gradient-nature: linear-gradient(180deg, hsl(147 45% 35%), hsl(147 60% 22%));
+    --gradient-cultural: linear-gradient(135deg, hsl(38 70% 60%), hsl(30 40% 65%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(48 15% 98%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(147 60% 22%), hsl(147 45% 35%));
+    --gradient-gold: linear-gradient(135deg, hsl(38 70% 60%), hsl(38 80% 45%));
+    
+    /* Enhanced Shadows */
+    --shadow-nature: 0 10px 30px -10px hsl(147 60% 22% / 0.3);
+    --shadow-cultural: 0 8px 25px -8px hsl(38 70% 60% / 0.4);
+    --shadow-card: 0 4px 20px -4px hsl(147 30% 15% / 0.15);
+    --shadow-button: 0 4px 15px -4px hsl(147 60% 22% / 0.4);
+    --shadow-gold: 0 6px 20px -6px hsl(38 70% 60% / 0.4);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Video background optimizations */
+  video {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  /* Smooth transitions for video loading */
+  .video-transition {
+    transition: opacity 1s ease-in-out;
+  }
+
+  /* Navigation hover effects */
+  nav {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  nav:hover {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  /* Bold text enhancements */
+  .font-black {
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Typography: Inter for body text, Cormorant Garamond for headings */
+  body {
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', Times, serif;
+  }
+
+  /* Forum headline utility */
+  .font-forum {
+    font-family: 'Forum', 'Cormorant Garamond', Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: 0.02em;
+  }
+
+  /* Enhanced cultural gold color */
+  .text-cultural-gold {
+    color: hsl(38, 70%, 60%);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Gradient text effects */
+  .bg-gradient-to-r {
+    background: linear-gradient(to right, #ffffff, #d97706, #ffffff);
+  }
+  
+  .bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  
+  .text-transparent {
+    color: transparent;
+  }
+
+
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-hero-mesh {
+    background-image:
+      radial-gradient(60rem 35rem at 10% 10%, hsl(200 70% 40% / 0.25), transparent 60%),
+      radial-gradient(45rem 30rem at 90% 20%, hsl(120 50% 40% / 0.25), transparent 60%),
+      radial-gradient(60rem 35rem at 30% 80%, hsl(38 70% 55% / 0.2), transparent 60%),
+      linear-gradient(135deg, hsl(147 60% 22%), hsl(120 50% 35%), hsl(200 70% 45%));
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Enhanced button utilities */
+  .btn-nature {
+    background: var(--gradient-button);
+    color: white;
+    box-shadow: var(--shadow-button);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-nature:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -8px hsl(147 60% 22% / 0.5);
+  }
+
+  .btn-cultural {
+    background: var(--gradient-gold);
+    color: white;
+    box-shadow: var(--shadow-gold);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-cultural:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -8px hsl(38 70% 60% / 0.5);
+  }
+
+  .btn-outline-nature {
+    border: 2px solid hsl(147 60% 22%);
+    color: hsl(147 60% 22%);
+    background: transparent;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-nature:hover {
+    background: hsl(147 60% 22%);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-button);
+  }
+
+  /* Text contrast utilities */
+  .text-high-contrast {
+    color: hsl(147 30% 15%);
+    font-weight: 600;
+  }
+
+  .text-muted-contrast {
+    color: hsl(147 15% 35%);
+  }
+
+  /* Card enhancements */
+  .card-enhanced {
+    background: white;
+    border: 1px solid hsl(147 25% 90%);
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+  }
+
+  .card-enhanced:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px -8px hsl(147 30% 15% / 0.2);
+  }
+}
+
+/* Dialogflow Chatbot Styling */
+df-messenger {
+  --df-messenger-primary-color: hsl(147, 60%, 22%);
+  --df-messenger-primary-color-rgb: 34, 77, 34;
+  --df-messenger-chat-background-color: hsl(0, 0%, 100%);
+  --df-messenger-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --df-messenger-font-size: 14px;
+  --df-messenger-border-radius: 12px;
+  --df-messenger-shadow: 0 8px 25px -8px hsl(147 60% 22% / 0.3);
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 1000 !important;
+}
+
+/* Custom styling for the chatbot button */
+df-messenger df-messenger-chat-bubble {
+  background: linear-gradient(135deg, hsl(147, 60%, 22%), hsl(120, 50%, 40%));
+  border-radius: 12px;
+  box-shadow: var(--df-messenger-shadow);
+}
+
+/* Chatbot welcome message styling */
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-message {
+  background: hsl(147, 45%, 35%);
+  color: white;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 8px 0;
+}
+
+/* User message styling */
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-message[is-user="true"] {
+  background: hsl(38, 70%, 60%);
+  color: hsl(147, 30%, 15%);
+}
+
+/* Input field styling */
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-input {
+  border: 2px solid hsl(147, 25%, 88%);
+  border-radius: 8px;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-input:focus {
+  border-color: hsl(147, 60%, 22%);
+  outline: none;
+  box-shadow: 0 0 0 3px hsl(147 60% 22% / 0.1);
+}
+
+/* Send button styling */
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-send-button {
+  background: hsl(147, 60%, 22%);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-send-button:hover {
+  background: hsl(147, 45%, 35%);
+  transform: translateY(-1px);
+}
+
+/* Chatbot header styling */
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-header {
+  background: linear-gradient(135deg, hsl(147, 60%, 22%), hsl(120, 50%, 40%));
+  color: white;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  padding: 16px 20px;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Typing indicator */
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-typing-indicator {
+  color: hsl(147, 60%, 22%);
+}
+
+/* Chatbot button styling */
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-button {
+  background: linear-gradient(135deg, hsl(147, 60%, 22%), hsl(120, 50%, 40%)) !important;
+  border-radius: 50% !important;
+  width: 60px !important;
+  height: 60px !important;
+  box-shadow: 0 4px 20px -4px hsl(147 60% 22% / 0.4) !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-button:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 6px 25px -6px hsl(147 60% 22% / 0.5) !important;
+}
+
+/* Chatbot icon styling - using chat-icon attribute */
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-button img {
+  border-radius: 50% !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  padding: 4px !important;
+}
+
+/* Chat window styling */
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-window {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 40px -10px hsl(147 60% 22% / 0.3) !important;
+  border: 1px solid hsl(147, 25%, 88%) !important;
+}
+
+/* Welcome message styling */
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-window df-messenger-chat-bubble-message {
+  background: linear-gradient(135deg, hsl(147, 45%, 35%), hsl(120, 50%, 40%)) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  margin: 8px 0 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* User message styling */
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-window df-messenger-chat-bubble-message[is-user="true"] {
+  background: linear-gradient(135deg, hsl(38, 70%, 60%), hsl(30, 40%, 65%)) !important;
+  color: hsl(147, 30%, 15%) !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  max-width: 80% !important;
+}
+
+/* Bot message styling */
+df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-window df-messenger-chat-bubble-message[is-user="false"] {
+  background: linear-gradient(135deg, hsl(147, 45%, 35%), hsl(120, 50%, 40%)) !important;
+  color: white !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  max-width: 80% !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  df-messenger {
+    --df-messenger-font-size: 13px;
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+  
+  df-messenger df-messenger-chat-bubble {
+    margin: 0 16px 16px 16px;
+    max-width: calc(100vw - 32px);
+  }
+  
+  df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-button {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  df-messenger df-messenger-chat-bubble df-messenger-chat-bubble-button img {
+    padding: 2px !important;
+  }
+}
