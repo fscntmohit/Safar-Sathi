@@ -32,9 +32,34 @@ console.log('NODE_ENV:', process.env.NODE_ENV);
 
 const app = express();
 const PORT = process.env.PORT || 4000;
-const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:8080';
+const configuredOrigins = (process.env.CORS_ORIGIN || '')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
-app.use(cors({ origin: CORS_ORIGIN, credentials: true }));
+const defaultLocalOrigins = ['http://localhost:8080', 'http://localhost:8081'];
+const allowedOrigins = Array.from(
+  new Set(
+    process.env.NODE_ENV === 'development'
+      ? [...defaultLocalOrigins, ...configuredOrigins]
+      : configuredOrigins.length > 0
+        ? configuredOrigins
+        : defaultLocalOrigins
+  )
+);
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      // Allow non-browser requests (curl, Postman, mobile clients, etc.)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      return callback(new Error(`CORS blocked for origin: ${origin}`));
+    },
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.get('/health', (_req, res) => {

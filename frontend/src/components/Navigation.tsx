@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const JharkhandOutline = ({ className }: { className?: string }) => (
   <svg
@@ -42,6 +42,8 @@ const JharkhandOutline = ({ className }: { className?: string }) => (
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isAuthenticated, user, signOut } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = [
     { name: "Destinations", href: "#destinations" },
@@ -57,23 +59,43 @@ const Navigation = () => {
     }
   };
 
+  const handleHomeClick = () => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      return;
+    }
+
+    const heroSection = document.getElementById('home');
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-forest-primary/90 backdrop-blur-md border-b border-white/30 shadow-lg transition-all duration-300 hover:bg-forest-dark/95">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <div className="flex items-center">
+          <button
+            type="button"
+            onClick={handleHomeClick}
+            className="flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            aria-label="Go to home section"
+          >
             <img 
               src="/bed27f4e-a4ab-4957-ba32-255a03263cc8.png" 
               alt="Jharkhand Logo" 
               className="h-10 w-10 object-cover mr-3"
             />
             <div className="flex flex-col">
-              <span className="text-xl font-black text-white leading-tight drop-shadow-2xl hover:scale-105 transition-transform duration-300 cursor-default">
+              <span className="text-xl font-black text-white leading-tight drop-shadow-2xl hover:scale-105 transition-transform duration-300">
                 Incredible Jharkhand
               </span>
             </div>
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center ml-auto space-x-6">

@@ -500,6 +500,7 @@ const JharkhandTourism = () => {
                   onClick={(e) => {
                     e.preventDefault();
                     alert('Thank you for your interest! We\'ll contact you within 24 hours to plan your perfect Jharkhand journey.');
+                    window.location.reload();
                   }}
                 >
                   <MapPin className="mr-3 h-6 w-6" />

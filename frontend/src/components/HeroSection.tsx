@@ -47,8 +47,8 @@ import { useState, useRef } from "react";
      }
    };
 
-   return (
-         <section className="relative min-h-screen flex items-end justify-start overflow-hidden bg-transparent">
+     return (
+       <section id="home" className="relative min-h-screen flex items-end justify-start overflow-hidden bg-transparent">
       {/* Background Video with Overlay */}
       <div className="absolute inset-0">
         {/* Fallback Image (shows while video loads) */}

@@ -46,16 +46,19 @@ function createTransport() {
   if (process.env.SMTP_URL) {
     return nodemailer.createTransport(process.env.SMTP_URL);
   }
+
+  // Gmail App Passwords are often copied with spaces; normalize safely.
+  const smtpPass = (process.env.SMTP_PASS || '').replace(/\s+/g, '');
   
   // Check if we have valid Gmail credentials
-  if (process.env.SMTP_USER && process.env.SMTP_PASS && process.env.SMTP_PASS !== 'your-gmail-app-password-here') {
+  if (process.env.SMTP_USER && smtpPass && smtpPass !== 'your-gmail-app-password-here') {
     return nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT || 587),
       secure: false, // true for 465, false for other ports
       auth: {
         user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        pass: smtpPass,
       },
       tls: {
         rejectUnauthorized: false
