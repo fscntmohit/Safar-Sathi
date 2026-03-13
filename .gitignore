@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Monorepo build artifacts
+**/node_modules/
+**/dist/
+frontend/dist/
+backend/dist/
+
 # Large video files (exceed GitHub 100MB limit)
 frontend/public/1757015121725861.mp4
 
