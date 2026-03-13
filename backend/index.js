@@ -20,14 +20,15 @@ const configuredOrigins = (process.env.CORS_ORIGIN || '')
   .map((origin) => origin.trim())
   .filter(Boolean);
 
+const defaultFrontendOrigins = ['https://safar-sathi-56jp.vercel.app'];
 const defaultLocalOrigins = ['http://localhost:8080', 'http://localhost:8081'];
 const allowedOrigins = Array.from(
   new Set(
     process.env.NODE_ENV === 'development'
-      ? [...defaultLocalOrigins, ...configuredOrigins]
+      ? [...defaultFrontendOrigins, ...defaultLocalOrigins, ...configuredOrigins]
       : configuredOrigins.length > 0
-        ? configuredOrigins
-        : defaultLocalOrigins
+        ? [...defaultFrontendOrigins, ...configuredOrigins]
+        : defaultFrontendOrigins
   )
 );
 
