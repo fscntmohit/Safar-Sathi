@@ -50,7 +50,7 @@ export type Reward = {
   createdAt: string;
 };
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://safar-sathi-9v5h.onrender.com';
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   // Get token from localStorage
