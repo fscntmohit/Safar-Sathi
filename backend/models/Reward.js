@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const rewardSchema = new mongoose.Schema(
   {
@@ -52,7 +52,7 @@ const rewardSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.models.Reward || mongoose.model('Reward', rewardSchema);
+module.exports = mongoose.models.Reward || mongoose.model('Reward', rewardSchema);
 
 
 

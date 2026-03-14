@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema(
   {
@@ -96,7 +96,7 @@ bookingSchema.pre('save', async function(next) {
   next();
 });
 
-export default mongoose.models.Booking || mongoose.model('Booking', bookingSchema);
+module.exports = mongoose.models.Booking || mongoose.model('Booking', bookingSchema);
 
 
 

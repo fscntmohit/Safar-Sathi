@@ -1,10 +1,10 @@
-import express from 'express';
-import jwt from 'jsonwebtoken';
-import nodemailer from 'nodemailer';
-import User from '../models/User.js';
-import Otp from '../models/Otp.js';
-import Booking from '../models/Booking.js';
-import Reward from '../models/Reward.js';
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer');
+const User = require('../models/User');
+const Otp = require('../models/Otp');
+const Booking = require('../models/Booking');
+const Reward = require('../models/Reward');
 
 const router = express.Router();
 
@@ -599,6 +599,6 @@ if (process.env.NODE_ENV === 'development') {
   });
 }
 
-export default router;
+module.exports = router;
 
 

@@ -50,9 +50,13 @@ export type Reward = {
   createdAt: string;
 };
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://safar-sathi-9v5h.onrender.com';
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
+  if (!API_BASE) {
+    throw new Error('VITE_API_BASE is not configured');
+  }
+
   // Get token from localStorage
   const token = localStorage.getItem('auth:token');
   
@@ -66,7 +70,7 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
     headers['Authorization'] = `Bearer ${token}`;
   }
   
-  const res = await fetch(`${API_BASE}${path}`, {
+  const res = await fetch(`${API_BASE}/api${path}`, {
     headers,
     ...options,
   });

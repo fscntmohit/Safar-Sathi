@@ -1,10 +1,8 @@
 {
-  "name": "jharkhand-tourism-backend",
-  "private": true,
+  "name": "backend",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "dev": "node --watch server.js",
     "start": "node server.js"
   },
   "dependencies": {
